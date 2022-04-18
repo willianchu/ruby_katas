@@ -13,11 +13,11 @@ def remove_leading_zero(number)
 end
 
 def ordinary_number(day)
-  if day[-1] == "1"
+  if day[-1] == "1" && day[-2] != "1"
     return "st"
-  elsif day[-1] == "2"
+  elsif day[-1] == "2" && day[-2] != "1"
     return "nd"
-  elsif day[-1] == "3"
+  elsif day[-1] == "3" && day[-2] != "1"
     return "rd"
   else
     return "th"
@@ -30,7 +30,9 @@ def month_name(month)
 end
 
 puts talking_calendar("2017/12/02") # -> December 2nd, 2017
+puts talking_calendar("2017/12/01") # -> December 1st, 2017
 puts talking_calendar("2007/11/11") # -> November 11th, 2007
+puts talking_calendar("2007/11/31") # -> November 31th, 2007
 puts talking_calendar("1987/08/24") # -> August 24th, 1987
 puts talking_calendar("2015/01/13") # -> January 13th, 2015
 puts talking_calendar("2000/02/29") # -> February 29th, 2000
