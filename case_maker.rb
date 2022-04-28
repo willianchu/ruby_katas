@@ -30,28 +30,31 @@ def uppercase_all_consonants(string)
   string.downcase.gsub(/[^aeiou]/, &:upcase)
 end
 
-def make_case(input, list_type)
+def make_case(string, list_type)
 
   case_type = list_type.is_a?(Array) ? list_type : [list_type]
-
+  input = string
   case_type.each do |type|
     case type 
     when 'snake'
-      input.gsub(' ', '_').downcase
+      input = input.gsub(' ', '_')
     when 'kebab'
-      input.gsub(' ', '-').downcase
+      input = input.gsub(' ', '-')
     when 'camel'
-      camel(input)
+      input = camel(input)
     when 'title'
-      title(input)
+      input = title(input)
     when 'pascal'
-      pascal(input)
+      input = pascal(input)
     when 'vowel'
-      uppercase_all_vowels(input)
+      input = uppercase_all_vowels(input)
     when 'consonant'
-      uppercase_all_consonants(input)
+      input = uppercase_all_consonants(input)
+    when 'upper'
+      input = input.upcase
     end
   end
+  input
 end
 
 print "camel:"
