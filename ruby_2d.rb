@@ -5,7 +5,9 @@ require 'ruby2d'
 
 require 'set'
 
-set title: "Hello Triangle"
+# set title: "Hello Triangle"
+# aternative way
+set( { :title => "Hello World!" } )
 
 Triangle.new(
   x1: 320, y1:  50,
