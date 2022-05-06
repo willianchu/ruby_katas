@@ -1,48 +1,52 @@
 # // Use the value below whenever you need the value of Pi
-# const PI = 3.14159 ;
+PI = 3.14159
 
-# const sphereVolume = function (radius) {
-#   // Code here!
-# }
+def sphereVolume(radius)
+  radius * radius * radius * 4 / 3 * PI
+end
 
-# console.log(4186 < sphereVolume(10) && sphereVolume(10) < 4189);
+puts (4186 < sphereVolume(10) && sphereVolume(10) < 4189)
 
-# const coneVolume = function (radius, height) {
-#   // And here!
-# }
 
-# console.log(45 < coneVolume(3, 5) && coneVolume(3, 5) < 49);
+def coneVolume(radius, height)
+  radius * radius * height / 3 * PI
+end
+
+puts (45 < coneVolume(3,5) && coneVolume(3,5) < 49)
 
 # const prismVolume = function (height, width, depth) {
 #   // Probably here too!
 # }
+def prismVolume(height, width, depth)
+  height * width * depth
+end
 
-# console.log(prismVolume(3, 4, 5) === 60);
+puts (prismVolume(3,4,5) == 60)
 
-# const totalVolume = function (solids) {
-#   // Code here? Yup!
-# }
+def totalVolume(solids)
+  total = 0
+  solids.each do |solid|
+    case solid["type"]
+      when "sphere"
+        total += sphereVolume(solid["radius"])
+        
+      when "cone"
+        total += coneVolume(solid["radius"], solid["height"])
+        
+      when "prism"
+        total += prismVolume(solid["height"], solid["width"], solid["depth"])
+        
+    end
+  end
+  total
+end
 
-# const largeSphere = {
-#   type: 'sphere',
-#   radius: 40
-# }
+large_sphere = { "type" => "sphere", "radius" => 40 }
+small_sphere = { "type" => "sphere", "radius" => 10 }
+cone = { "type" => "cone", "radius" => 3, "height" => 5 }
 
-# const smallSphere = {
-#   type: 'sphere',
-#   radius: 10
-# }
+duck = [large_sphere, small_sphere, cone]
 
-# const cone = {
-#   type: 'cone',
-#   radius: 3,
-#   height: 5
-# }
+puts (272000 < totalVolume(duck) && totalVolume(duck) < 275000)
+puts totalVolume(duck)
 
-# const duck = [
-#   largeSphere,
-#   smallSphere,
-#   cone
-# ]
-
-# console.log(272000 < totalVolume(duck) && totalVolume(duck) < 275000);
