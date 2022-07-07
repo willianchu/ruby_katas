@@ -3,8 +3,9 @@ def scoring(array)
   # @person&.spouse&.name
   # instead
   # @person.spouse.name if @person && @person.spouse
-  
+
   # array.each {|user| user.update_score}
 end
+
 
 
