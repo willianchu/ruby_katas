@@ -43,8 +43,10 @@ def count_multibyte_char (var)
 end
 
 # Solution 1: 
+# \p{ASCII}	All ASCII:[\x00-\x7F]
+
 def count_multibyte_char1 str
-  str.count "^\x00-\x7F"
+  str.count "^\x00-\x7F" # ^ means not match the regex ALL ASCII
 end
 
 # Solution 2:
