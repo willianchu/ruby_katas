@@ -15,7 +15,9 @@
 # mask_article which appends strike tags around certain words in a text. The method takes 2 arguments: A string and an array of words. It then replaces all the instances of words in the text with the modified version.
 
 # A helper method strike, given one string, appends strike off HTML tags around it. The strike off HTML tag is <strike></strike>.
-# For example:
+
+# ! EXCLAMATION alter the string in original instead of creating a new one.
+
 
 strike("Meow!") # => "<strike>Meow!</strike>"
 mask_article("Hello World! This is crap!", ["crap"])
@@ -29,6 +31,42 @@ def strike str
   "<strike>*{str}</strike>"
 end
 
-def mask_article (str, arr)
-  arr.each {|nw| str.gsub(nw, strike(nw))}
+def mask_article(str, arr)
+  arr.each {|nw| str.gsub!(nw, strike(nw))}
+  str
 end
+
+
+
+# solution pattern
+def strike(word)
+  "<strike>#{word}</strike>"
+end
+def mask_article(text, words)
+  pattern = words.join("|")
+  text.gsub(/#{pattern}/) {|match| strike(match)}
+end
+
+# similar
+def strike(word)
+  "<strike>#{word}</strike>"
+end
+
+def mask_article(string, words)
+  words.each do |word|
+    string.gsub!(word, strike(word))
+  end
+
+  string
+end
+
+#solution 1
+
+def mask_article (text ,array) 
+  array.each do | word |
+      text.gsub!(word, strike(word)) if text.include? word
+  end
+  text
+end
+
+
