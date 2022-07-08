@@ -25,3 +25,10 @@ In this challenge, your task is to code a process_text method, which takes an ar
 
 > process_text(["Hi, \n", " Are you having fun?    "])
 "Hi, Are you having fun?"
+
+# solution
+def process_text(arr)
+  arr.map {|s| s.strip}.join(" ")
+end
+# secure solution
+arr.map(&:strip).join(' ')
