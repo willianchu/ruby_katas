@@ -42,6 +42,11 @@ def count_multibyte_char (var)
   count
 end
 
+# Solution evolution:
+def count_multibyte_char_evo (str)
+  str.each_char.count{|x| x.bytesize > 1}
+end
+
 # Solution 1: 
 # \p{ASCII}	All ASCII:[\x00-\x7F]
 
@@ -49,26 +54,13 @@ def count_multibyte_char1 str
   str.count "^\x00-\x7F" # ^ means not match the regex ALL ASCII
 end
 
-# Solution 2:
-def count_multibyte_char3 (str)
-  str.each_char.count{|x| x.bytesize > 1}
-end
 
-# Solution 3:
-def count_multibyte_char3 str
+# Solution 2:
+def count_multibyte_char2 str
   str.each_char.select { |c| c.bytesize > 1 }.count
 end
 
-# Solution 4:
-def count_multibyte_char4(str)
-  count = 0
-  
-  str.each_char do |char|
-      count += 1 if char.bytesize > 1
-  end
-  
-  return count
-end
+
 
 
 
