@@ -32,3 +32,6 @@ def process_text(arr)
 end
 # secure solution
 arr.map(&:strip).join(' ')
+
+# each returns the receiver ( its a simply loop iterator)
+# map returns a new array !!
