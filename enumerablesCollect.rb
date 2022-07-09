@@ -32,8 +32,7 @@ end
 
 # OR
 def cypher(entry)
-  chars = entry.split('')
-  chars.map { |x| 
+  entry.chars.map { |x| 
       if (x.ord >= "A".ord) && (x.ord <= "M".ord) then 
           (x.ord+13).chr  
       elsif (x.ord >= "N".ord) && (x.ord <= "Z".ord) then 
@@ -49,6 +48,30 @@ def cypher(entry)
 end
           
 def rot13(secret_messages) 
-    secret_messages.each {|phrase| cypher(phrase)}
+    secret_messages.map {|phrase| cypher(phrase)}
 end
  
+
+# string in a integer array
+ascii = "test".chars.map(&:ord)
+#or
+ascii = "test".chars.map { |c| c.ord }
+# => [116, 101, 115, 116]
+
+# Rotation 5 is the step of the Caesar cipher.
+shifted = ascii.map { |c| c + 5 }
+# => [121, 106, 120, 121]
+back to letters
+shifted.map { |c| c.chr }.join
+# => "yjxy"
+
+# Caesar cipher
+def caesar_cipher(string, shift = 13)
+  alphabet   = Array('a'..'z')
+  encrypter  = Hash[alphabet.zip(alphabet.rotate(shift))]
+  string.chars.map { |c| encrypter.fetch(c, " ") }.join('')
+end
+          
+def rot13(secret_messages) 
+    secret_messages.map {|phrase| caesar_cipher(phrase)}
+end
