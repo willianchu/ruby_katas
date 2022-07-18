@@ -53,10 +53,21 @@ end
 # The factorial method computes: n! {  x  x  x  }.
 
 def factorial
-  #_______________________
+  yield
 end
 
 n = gets.to_i
 factorial do 
-  puts #_______________________
+  puts "#{(1..n).inject(:*) || 1}"
+end
+
+# Solution
+def factorial(n)
+  x = (1..n).reduce(:*) || 1 # reduce or inject
+  yield(x) # yield
+end
+
+n = gets.to_i
+factorial(n) do |x|
+  puts x
 end
