@@ -11,9 +11,17 @@ require 'stringio'
 #
 
 def simpleArraySum(ar)
-    # Write your code here
+    ar.reduce (:+)
 
 end
+
+# function simpleArraySum(ar) {
+# 	return ar.reduce((a, b) => a + b)
+# }
+# OR
+# {
+#     |total, element| total + element 
+# }
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
 
