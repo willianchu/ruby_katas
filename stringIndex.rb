@@ -2,6 +2,17 @@
 # It returns a string containing the answer in format SSS-ZZ.ZZ where SSS is the serial number of that input string, and ZZ.ZZ is the average of XX.XX and YY.YY.
 # All numbers are rounded off to two decimal places.
 
+# current answer
+def serial_average fixed_string
+  s = fixed_string[0,3]
+  x = fixed_string[4,5].to_f
+  y = fixed_string[10,5].to_f
+  z = ((x + y) / 2).round(2).to_s
+  return "#{s}-#{z}"
+end
+
+
+
 def serial_average(s)
   sss = s[0..2]
   x_s = s[4..8].to_f
