@@ -16,9 +16,9 @@ def diagonalDifference(arr)
   second_diagonal = 0
   for i in 0..length do
    first_diagonal += arr[i][i]
-   second_diagonal += arr[i][lenlength - i]
+   second_diagonal += arr[i][length - i]
   end
-  (sfirst_diagonal - second_diagonal).abs()
+  (first_diagonal - second_diagonal).abs()
 end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
