@@ -11,8 +11,14 @@ require 'stringio'
 #
 
 def diagonalDifference(arr)
-    # Write your code here
-
+  length = arr.length - 1
+  first_diagonal = 0
+  second_diagonal = 0
+  for i in 0..length do
+   first_diagonal += arr[i][i]
+   second_diagonal += arr[i][lenlength - i]
+  end
+  (sfirst_diagonal - second_diagonal).abs()
 end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
