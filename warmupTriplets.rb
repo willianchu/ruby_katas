@@ -22,7 +22,7 @@ def compareTriplets(a, b)
           score_B += 1    
       end
   end
-  puts "#{score_A} #{score_B}" 
+  [score_A, score_B] 
 end
 
 
