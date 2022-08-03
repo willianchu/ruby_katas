@@ -10,13 +10,16 @@ require 'stringio'
 #
 
 def miniMaxSum(arr)
+  sorted = arr.sort()
   minSum = 0
-  for i in 0..arr.length-1
-    minSum = minSum + arr[i].to_i;  
+  for i in 0..sorted.length-2
+    minSum = minSum + sorted[i].to_i;
   end
   
   maxSum = 0
-  1.step{|i| maxSum = maxSum + arr[i].to_i; break if i > arr.size}
+  for i in 1..sorted.length-1
+    maxSum = maxSum + sorted[i].to_i
+  end
   puts "#{minSum} #{maxSum}"
 end
 
