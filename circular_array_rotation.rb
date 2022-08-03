@@ -14,7 +14,8 @@ require 'stringio'
 #
 
 def circularArrayRotation(a, k, queries)
-    a.rotate(-k)  
+    b = a.rotate(-k)
+    queries.map { |i| b[i]}
  end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
