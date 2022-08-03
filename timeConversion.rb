@@ -14,10 +14,10 @@ def timeConversion(s)
   am_pm = s[-2..-1]
   puts am_pm
   hour = s[0..1].to_i
-  if am_pm == "PM" || am_pm == "pm"
+  if am_pm.upcase == "PM" && hour != 12
     hour = hour + 12
     hour = hour == 24 ? "00" : hour
-  elsif am_pm == "AM" && hour == 12
+  elsif am_pm.upcase == "AM" && hour == 12
     hour = "00"
   end
   puts hour
