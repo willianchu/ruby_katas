@@ -11,8 +11,12 @@ require 'stringio'
 #
 
 def timeConversion(s)
-    # Write your code here
-
+  am_pm = s[-2..-1]
+  hour = s[0..1].to_i
+  if am_pm == "PM"
+    hour = hour + 12
+  end
+  return hour.to_s + s[2..-3]
 end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
