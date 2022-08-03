@@ -11,9 +11,10 @@ require 'stringio'
 #
 
 def birthdayCakeCandles(candles)
-    arr = Array.new(100,0)
-    candles.each { |i| arr[i] += 1}
-    arr.max
+  maxIndex = candles.max + 1
+  arr = Array.new(maxIndex,0)
+  candles.each { |i| arr[i] += 1}
+  arr.max
 end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
