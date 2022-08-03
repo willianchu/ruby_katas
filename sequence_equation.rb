@@ -11,8 +11,13 @@ require 'stringio'
 #
 
 def permutationEquation(p)
-    # Write your code here
-
+  p.unshift(0) # equalizate indx to start in 1
+  a = Array.new
+  for x in 1..p.length - 1 # remove zero
+      a.push(p.find_index(p.find_index(x)))
+         
+  end
+  a
 end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
