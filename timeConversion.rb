@@ -17,8 +17,10 @@ def timeConversion(s)
       hour = am_pm == "AM" ? "00" : "12"
   elsif am_pm == "PM"
       hour += 12  
+  elsif hour > 0 && hour < 10
+      hour = "0" + hour.to_s
   end
-  return hour.to_s + s[2..-3]
+  hour.to_s + s[2..-3]
 end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
