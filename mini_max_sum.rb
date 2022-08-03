@@ -10,7 +10,9 @@ require 'stringio'
 #
 
 def miniMaxSum(arr)
-    # Write your code here
+    minSum = 0.step{|i| minSum += arr[i]; break if i > arr.size-1}
+    maxSum = 1.step{|i| maxSum += arr[i]; break if i > arr.size}
+    puts "#{minSum} #{maxSum}"
 
 end
 
