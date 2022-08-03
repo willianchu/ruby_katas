@@ -8,18 +8,14 @@ require 'stringio'
 #
 # The function accepts INTEGER_ARRAY arr as parameter.
 #
+def sum_array(arr)
+  arr.inject(:+)
+end
 
 def miniMaxSum(arr)
   sorted = arr.sort()
-  minSum = 0
-  for i in 0..sorted.length-2
-    minSum = minSum + sorted[i].to_i;
-  end
-  
-  maxSum = 0
-  for i in 1..sorted.length-1
-    maxSum = maxSum + sorted[i].to_i
-  end
+  minSum = sum_array(sorted[0..-2])
+  maxSum = sum_array(sorted[1..-1])
   puts "#{minSum} #{maxSum}"
 end
 
