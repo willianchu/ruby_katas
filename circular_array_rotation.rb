@@ -12,11 +12,18 @@ require 'stringio'
 #  2. INTEGER k
 #  3. INTEGER_ARRAY queries
 #
-
-def circularArrayRotation(a, k, queries)
-    b = a.rotate(-k)
-    queries.map { |i| b[i]}
- end
+def rotation_anti_clock(a, k)
+  
+    k.times do
+      a.unshift(a.pop)
+    end 
+    a
+  end
+  
+  def circularArrayRotation(a, k, queries)
+      b = rotation_anti_clock(a,k)
+      queries.map { |i| b[i]}
+   end
 
 fptr = File.open(ENV['OUTPUT_PATH'], 'w')
 
