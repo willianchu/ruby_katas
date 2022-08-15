@@ -10,7 +10,7 @@
 
 def kangaroo(x1, v1, x2, v2) # solve 50% of cases
   jump = (x1 - x2) / (v2 - v1)
-  puts jump
-  jump > 0 && jump.integer? ? "YES" : "NO"
+  remainder = (x1 - x2) % (v2 - v1)
+  jump > 0 && remainder.integer? ? "YES" : "NO"
 end
 
