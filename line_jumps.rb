@@ -8,9 +8,10 @@
 #  4. INTEGER v2 - jump distance of kangaroo 2
 #
 
-def kangaroo(x1, v1, x2, v2) # solve 50% of cases
-  jump = (x1 - x2) / (v2 - v1)
-  remainder = (x1 - x2) % (v2 - v1)
-  jump > 0 && remainder.integer? ? "YES" : "NO"
+def kangaroo(x1, v1, x2, v2)
+  divide_by = (v2 - v1) == 0 ? 1 : (v2 - v1)
+  distance = (x1 - x2) / divide_by
+  complete_jump = (x1 - x2) % divide_by
+  distance > 0 && complete_jump == 0 ? "YES" : "NO"
 end
 
