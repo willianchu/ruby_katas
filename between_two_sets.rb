@@ -9,7 +9,8 @@
 
 def getTotalX(a, b)
     first_number = a.min()
-    last_number = b.max()
+    # strange the for loop doesnt count to 100 I have to add +1
+    last_number = b.max() + 1
     all_match_array = []
     for i in first_number...last_number
         all_divisible = true
@@ -41,3 +42,4 @@ def getTotalX(a, b)
     answer_array.length()
 end
 
+puts getTotalX([1], [100])
