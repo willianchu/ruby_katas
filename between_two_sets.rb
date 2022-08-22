@@ -20,10 +20,24 @@ def getTotalX(a, b)
             end
         end
         if all_divisible
-            puts i
             all_match_array.push(i)
         end
     end
-    answer_array 
+    answer_array = []
+    result = 0
+    all_match_array.each do |number|
+        all_divisible = true
+        b.each do |element|
+            result = element % number
+            if (result != 0)
+                all_divisible = false
+                break
+            end    
+        end
+        if all_divisible == true
+            answer_array.push(number)
+        end
+    end
+    answer_array.length()
 end
 
