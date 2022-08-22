@@ -10,18 +10,29 @@
 def getTotalX(a, b)
     first_number = a.min()
     last_number = b.max()
-    answer_array = 
-    for i in first_number...last_number do {
+    answer_array = []
+    for i in first_number...last_number
         all_divisible = true
-        a.each do { |element|
-            if (element % i) != 0 {
+        a.each do |element|
+            if ( i % element) != 0
                 all_divisible = false
                 break
-            }
-            
-        }
-        
-    }
+            end
+        end
+        if all_divisible
+            b.each do |element|
+                if ( i % element) != 0
+                    all_divisible = false
+                    break
+                end
+            end    
+            if all_divisible
+                answer_array.push(i)
+            end
+        end 
+        answer_array.length()    
+    end
+    
 
 end
 
